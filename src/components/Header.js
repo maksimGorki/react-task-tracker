@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
+import Button from "./Button";
 
-const Header = ({ title }) => {
+const Header = ({ title, onAdd, showAddTask }) => {
   return (
-    <header>
+    <header className="header">
       <h1>{title}</h1>
+      <Button
+        color={!showAddTask ? "blue" : "red"}
+        text={!showAddTask ? "Add" : "Close"}
+        onClick={onAdd}
+      />
     </header>
   );
 };
@@ -16,9 +22,10 @@ Header.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-const headingStyle = {
-  color: "red",
-  background: "black",
-};
+// Dynamic styling - CSS in JS
+// const headingStyle = {
+//   color: "yellow",
+//   background: "black",
+// };
 
 export default Header;
